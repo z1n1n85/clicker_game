@@ -38,11 +38,10 @@ function gameInit() {
 }
 
 function startTimer() {
-    setTimeout(gameEnd, 5000);
-    
     let updateTimer = setInterval(() => {
         if (time <= 0){
             clearInterval(updateTimer);
+            gameEnd();
         } else {
             time = time - TICK;
             TIMER.textContent = 'Время: ' + (time / 1000).toFixed(2);
